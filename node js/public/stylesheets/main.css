@@ -24,4 +24,61 @@
     border: 2px solid white; }
     .jumbotron .lang-logo img {
       max-width: 100%; }
+body {
+  background-color: #25274D;
+  font-family: 'Fira Sans', sans-serif;
+  color: #fff;
+}
+.navbar {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 100%;
+  margin-left: 0px;
+  background-color: #464866;
+}
+.nav {
+  display: inline-block;
 
+}
+a {
+    margin-right: 14px;
+    font-size: 18px;
+  text-decoration: none;
+  color:#AAA;
+  font-family: 'Fira Sans', sans-serif;
+  text-transform: uppercase;
+  padding: 18px;
+}
+a:hover {
+  color: #2d9cca;
+  padding: 20px;
+}
+table {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+td {
+  padding-top: 12px;
+    padding-bottom: 12px;
+    color: #fff;
+    border: none;
+}
+tr {
+  background-color: #25274D;
+}
+tr:hover {
+  background-color: #2d9cca;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #2d9cca;
+}
+th {
+  background: #464866;
+  padding-top: 12px;
+    padding-bottom: 12px;
+    color: #fff;
+    border: none;
+}
