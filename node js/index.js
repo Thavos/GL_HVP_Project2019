@@ -15,6 +15,7 @@ express()
   .get('/post', function(req, res){
     stronk = req.body;
     console.log(stronk);
+    res.send({alpha : 'jewis'});
   })
   
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
