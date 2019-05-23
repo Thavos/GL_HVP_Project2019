@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+const app = express();
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -9,5 +10,8 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
+app.get('https://gl-hvp-project2019.herokuapp.com/get', function (req, res) {
+  res.send('hello world');
+})
 
 //uselles coment
