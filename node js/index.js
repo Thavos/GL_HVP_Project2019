@@ -1,3 +1,4 @@
+const http = require('http')
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
@@ -10,6 +11,7 @@ express()
 
   .get('/get', function(req, res){
     res.send('hello');
+    res.end();
   })
 
   .get('/post', function(req, res){
