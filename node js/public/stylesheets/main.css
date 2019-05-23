@@ -60,3 +60,6 @@ th {
 .inputs{
   text-align: center;
 }
+label {
+  display: inline-block;
+}
