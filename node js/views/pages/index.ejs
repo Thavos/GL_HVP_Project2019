@@ -8,60 +8,131 @@
   <body>
     <div class="navbar">
         <ul>
-            <li class="nav"><a href="home.html">Domov</a></li>
-            <li class="nav"><a href="about.html">O projekte</a></li>
+            <li class="nav"><a href="index.ejs">Domov</a></li>
+            <li class="nav"><a href="about.ejs">O projekte</a></li>
         </ul>
       </div>
       <h1>Database of sensoring</h1>
-    <table style="width:50%" align= "center">
-      <tr>
-        <th>Date<br><input type="date" name="date" placeholder="dátum"></th>
-        <th>Time</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>12:12</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-      <tr>
-        <td>20.5.2019</td>
-        <td>13:20</td>
-      </tr>
-    </table>
+      <section class="inputs">
+        <label>
+          Choose a date <br>
+          <input type="date" name="date" placeholder="dátum" onclick="CreateTableFromJSON()" value="Create Table From JSON">
+        </label>
+        <label>
+          Choose a time <br>
+        <select name="serial">
+          <option value="1">1:00</option>
+          <option value="2">2:00</option>
+          <option value="3">3:00</option>
+          <option value="4">4:00</option>
+          <option value="5">5:00</option>
+          <option value="6">6:00</option>
+          <option value="7">7:00</option>
+          <option value="8">8:00</option>
+          <option value="9">9:00</option>
+          <option value="10">10:00</option>
+          <option value="11">11:00</option>
+          <option value="12">12:00</option>
+          <option value="13">13:00</option>
+          <option value="14">14:00</option>
+          <option value="15">15:00</option>
+          <option value="16">16:00</option>
+          <option value="17">17:00</option>
+          <option value="18">18:00</option>
+          <option value="19">19:00</option>
+          <option value="20">20:00</option>
+          <option value="21">21:00</option>
+          <option value="22">22:00</option>
+          <option value="23">23:00</option>
+          <option value="24">24:00</option>
+        </select>
+        <select name="serial">
+          <option value="1">1:00</option>
+          <option value="2">2:00</option>
+          <option value="3">3:00</option>
+          <option value="4">4:00</option>
+          <option value="5">5:00</option>
+          <option value="6">6:00</option>
+          <option value="7">7:00</option>
+          <option value="8">8:00</option>
+          <option value="9">9:00</option>
+          <option value="10">10:00</option>
+          <option value="11">11:00</option>
+          <option value="12">12:00</option>
+          <option value="13">13:00</option>
+          <option value="14">14:00</option>
+          <option value="15">15:00</option>
+          <option value="16">16:00</option>
+          <option value="17">17:00</option>
+          <option value="18">18:00</option>
+          <option value="19">19:00</option>
+          <option value="20">20:00</option>
+          <option value="21">21:00</option>
+          <option value="22">22:00</option>
+          <option value="23">23:00</option>
+          <option value="24">24:00</option>
+        </select>
+        </label>
+       <p id="showData" style="width: 100%" align="center"></p>
+      </section>
+
+<script>
+    function CreateTableFromJSON() {
+        var data = [
+            {
+                "Date": "23.5.2019",
+                "Time": "12:12"
+            },
+            {
+                "Date": "23.5.2019",
+                "Time": "12:43"
+            },
+            {
+                "Date": "23.5.2019",
+                "Time": "13:03"
+            }
+        ]
+
+        // EXTRACT VALUE FOR HTML HEADER.
+
+        var col = [];
+        for (var i = 0; i < data.length; i++) {
+            for (var key in data[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        var tr = table.insertRow(-1);                   // TABLE ROW.
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < data.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = data[i][col[j]];
+            }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+</script>
   </body>
 </html>
