@@ -10,14 +10,14 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-app.get('/get', function (req, res) {
+app.get('/', function (req, res) {
   console.log("Hello World");
   res.send({some : "json"});
 })
 
-app.post('/post', function (req, res) {
+app.post('/', function (req, res) {
   console.log("Hello porld");
-  res.send({some : other});
+  res.send({some : "other"});
 })
 
 //uselles coment
