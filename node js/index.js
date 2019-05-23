@@ -11,6 +11,7 @@ express()
 
   .get('/get', function(req, res){
     res.send('hello');
+    res.end();
   })
 
   .post('/post', function(req, res){
