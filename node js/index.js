@@ -8,7 +8,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/get', (req, res) => res.send({some : "json"}))
-  .get('/post', (req, res) => res.write({some : "json"}))
+  .get('/post', (req, res) => res.send({some : "other"}))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 //uselles coment
