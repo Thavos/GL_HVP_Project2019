@@ -10,12 +10,12 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-app.get('https://gl-hvp-project2019.herokuapp.com/get', function (req, res) {
+app.get('/get', function (req, res) {
   console.log("Hello World");
   res.send('hello world');
 })
 
-app.post('https://gl-hvp-project2019.herokuapp.com/post', function (req, res) {
+app.post('/post', function (req, res) {
   console.log("Hello porld");
   res.send('POST request to the homepage');
 })
