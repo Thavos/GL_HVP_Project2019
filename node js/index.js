@@ -13,10 +13,9 @@ express()
   })
 
   .get('/post', function(req, res){
-    res.render('contact-successful', {data : req.body});
+    res.render('contact-successful');
   })
   
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-let stronk;
 //uselles coment
