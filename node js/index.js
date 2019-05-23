@@ -12,12 +12,12 @@ express()
 
 app.get('/get', function (req, res) {
   console.log("Hello World");
-  res.send('hello world');
+  res.send({some : "json"});
 })
 
 app.post('/post', function (req, res) {
   console.log("Hello porld");
-  res.send('POST request to the homepage');
+  res.send({some : other});
 })
 
 //uselles coment
