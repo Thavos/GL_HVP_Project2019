@@ -7,8 +7,17 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/get', (req, res) => res.send({some : "json"}))
-  .get('/post', (req, res) => res.send({some : "other"}))
+
+  .get('/get', function(req, res){
+    res.send('hello');
+  })
+
+  .get('/post', function(req, res){
+    stronk = req.body;
+    console.log(stronk);
+  })
+  
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
+let stronk;
 //uselles coment
