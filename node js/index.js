@@ -8,16 +8,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
+  .get('/post', (req, res) => res.send({some : "json"}))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-app.get('/', function (req, res) {
-  console.log("Hello World");
-  res.send({some : "json"});
-})
-
-app.post('/', function (req, res) {
-  console.log("Hello porld");
-  res.send({some : "other"});
-})
 
 //uselles coment
