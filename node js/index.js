@@ -13,7 +13,7 @@ express()
   })
 
   .get('/post', function(req, res){
-    res.render('contact-successful');
+    res.send('contact-successful');
   })
   
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
