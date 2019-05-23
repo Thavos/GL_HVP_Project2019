@@ -13,7 +13,7 @@ express()
     res.send('hello');
   })
 
-  .get('/post', function(req, res){
+  .post('/post', function(req, res){
     res.send('contact-successful');
     res.end();
   })
