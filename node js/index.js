@@ -13,7 +13,7 @@ express()
   })
 
   .get('/post', function(req, res){
-    stronk = req.body;
+    stronk = req;
     console.log(stronk);
     res.send({alpha : 'jewis'});
   })
