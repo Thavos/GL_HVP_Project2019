@@ -17,20 +17,9 @@ express()
 
   .get('/db',function(req, res){
     mongo.connect(mongoUrl, function(err, db){
-      var console = db.collection('users')
-      collection.findOne({
-          'basicInfo.firstName' : userName
-        },
-        function(err,result){
-          if(err){
-            console.err('Error');
-            res.status(500).send('Error');
-          }else{
-            console.log('Success')
-            res.status(200).json(result)
-          }
-        }  
-      )
+      var console = db
+      console.log(db)
+      res.send(db)
     })
   })
 
