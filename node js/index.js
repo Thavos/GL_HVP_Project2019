@@ -11,12 +11,10 @@ express()
 
   .get('/get', function(req, res){
     res.send({some : "other"});
-    res.end();
   })
 
   .post('/post', function(req, res){
     res.send('contact-successful');
-    res.end();
   })
   
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
