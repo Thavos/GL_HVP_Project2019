@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5000
 
 //let mongoUrl = "mongodb+srv://gluser:tajneheslo@glcluster-nzu7u.mongodb.net/test?retryWrites=true"
 let data = fs.readFileSync('data.json')
+let json = JSON.parse(data);
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -19,7 +20,8 @@ express()
 
   .get('/db',function(req, res){
       console.log(data)
-      res.write(data)
+      console.log(json)
+      res.send("haha")
   })
 
   .post('/post', function(req, res){
