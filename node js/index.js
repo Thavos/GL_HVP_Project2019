@@ -19,8 +19,8 @@ express()
   })
 
   .get('/db',function(req, res){
-      console.log(data)
-      console.log(json)
+      console.log(JSON.stringify(data))
+      console.log("1 + 1 + 1 + 1")
       res.send("haha")
   })
 
