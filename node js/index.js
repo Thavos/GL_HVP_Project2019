@@ -28,7 +28,8 @@ express()
                Day : day,
                Hour : hour,
                Minute : minute,
-               Second : second })
+               Second : second,
+               Date : date })
   })
   
   .get('/db',function(req, res){
