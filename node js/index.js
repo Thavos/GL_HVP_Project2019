@@ -28,7 +28,7 @@ express()
                 Day : day,
                 Hour : hour,
                 Minute : minute,
-                Second : second },{
+                Second : second,
                 Some : date})
   })
   
