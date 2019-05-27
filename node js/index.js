@@ -10,7 +10,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/get', function(req, res){
-    res.send('hello');
+    res.send({some : "other"});
     res.end();
   })
 
