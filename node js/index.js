@@ -19,7 +19,7 @@ express()
   })
 
   .get('/db',function(req, res){
-      res.send(JSON.stringify(data))
+      res.send(json)
   })
 
   .post('/post', function(req, res){
