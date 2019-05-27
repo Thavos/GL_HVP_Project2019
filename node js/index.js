@@ -18,14 +18,16 @@ express()
     let date = new Date();
     fs.readFile('data.json', 'utf8', function readFileCallback(err, data){
       if (err){
-          console.log(err);
+        console.log(err);
       } else {
-      obj = JSON.parse(data);
-      obj.table.push({id : data.length() - 1, time : date});
-      json = JSON.stringify(obj);
-      fs.writeFile('data.json', json, 'utf8', callback);
-  }});
-    res.send({some : "other"});
+        obj = JSON.parse(data);
+        obj.table.push({id : data.length() - 1, time : date});
+        json = JSON.stringify(obj);
+        fs.writeFile('data.json', json);
+      }
+    })
+
+    res.send({some : json});
   })
 
   .get('/db',function(req, res){
