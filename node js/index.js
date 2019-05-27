@@ -18,7 +18,7 @@ express()
     let date = new Date()
     let year = date.getFullYear()
     let month = date.getMonth()
-    let day = date.getDay()
+    let day = date.getDate()
     let hour = date.getHours()
     let minute = date.getMinutes()
     let second = date.getSeconds()
@@ -28,8 +28,7 @@ express()
                Day : day,
                Hour : hour,
                Minute : minute,
-               Second : second,
-               Date : date.day })
+               Second : second  })
   })
   
   .get('/db',function(req, res){
