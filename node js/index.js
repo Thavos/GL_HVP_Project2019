@@ -1,9 +1,11 @@
+const fs =  require('fs')
 const mongo = require('mongodb')
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-let mongoUrl = "mongodb+srv://gluser:tajneheslo@glcluster-nzu7u.mongodb.net/test?retryWrites=true"
+//let mongoUrl = "mongodb+srv://gluser:tajneheslo@glcluster-nzu7u.mongodb.net/test?retryWrites=true"
+let data = fs.readFileSync('./database/data.json')
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -16,13 +18,7 @@ express()
   })
 
   .get('/db',function(req, res){
-      mongo.connect(mongoUrl, function(err, result){
-        if(err){
-          res.send(err)
-        } else {
-          res.send(result)
-        }
-      })
+      res.send(data);
   })
 
   .post('/post', function(req, res){
