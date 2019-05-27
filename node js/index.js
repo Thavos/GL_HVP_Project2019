@@ -19,9 +19,7 @@ express()
   })
 
   .get('/db',function(req, res){
-      console.log(JSON.stringify(data))
-      console.log("1 + 1 + 1 + 1")
-      res.send("haha")
+      res.send(JSON.stringify(data))
   })
 
   .post('/post', function(req, res){
