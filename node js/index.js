@@ -23,12 +23,12 @@ express()
     let minute = date.getMinutes()
     let second = date.getSeconds()
     
-    res.send({  Year : year,
-                Month : month,
-                Day : day,
-                Hour : hour,
-                Minute : minute,
-                Second : second  })
+    res.send({  FYear : year,
+                FMonth : month,
+                FDay : day,
+                FHour : hour,
+                FMinute : minute,
+                FSecond : second  })
   })
   
   .get('/db',function(req, res){
