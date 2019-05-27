@@ -3,7 +3,7 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-let mongoUrl = "mongodb+srv://glcluster:<tajneheslo>@glcluster-nzu7u.mongodb.net/test?retryWrites=true"
+let mongoUrl = "mongodb+srv://glcluster:tajneheslo@glcluster-nzu7u.mongodb.net/test?retryWrites=true"
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -25,7 +25,6 @@ express()
       console.log(db)
       res.send(db)
     })
-    
   })
 
   .post('/post', function(req, res){
