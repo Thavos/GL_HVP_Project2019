@@ -15,6 +15,16 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/get', function(req, res){
+    let date = new Date();
+    fs.readFile('data.json', 'utf8', function readFileCallback(err, data){
+      if (err){
+          console.log(err);
+      } else {
+      obj = JSON.parse(data);
+      obj.table.push({id : data.length() - 1, time : date});
+      json = JSON.stringify(obj);
+      fs.writeFile('data.json', json, 'utf8', callback);
+  }});
     res.send({some : "other"});
   })
 

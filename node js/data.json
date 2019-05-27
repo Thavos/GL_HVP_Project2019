@@ -1,4 +1,8 @@
 {
-    "test" : "haha",
-    "teest" : "hhaahhaa"
+    "zapis-1" : {
+        "id" : 1,
+        "time" : 6.47,
+        "date" : 13.5,
+        "year" : 2019
+    }
 }
