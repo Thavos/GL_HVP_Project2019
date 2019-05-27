@@ -15,7 +15,7 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/get', function(req, res){
-    let date = new Date();
+    new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
     res.send({some : date});
   })
 
