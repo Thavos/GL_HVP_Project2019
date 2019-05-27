@@ -18,7 +18,8 @@ express()
   })
 
   .get('/db',function(req, res){
-      res.send(data);
+      console.log(data)
+      res.write(data)
   })
 
   .post('/post', function(req, res){
