@@ -15,11 +15,20 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/get', function(req, res){
-    Date(year, month, day, hour, minute, second)
+    let date = new Date()
+    let year = date.getFullYear()
+    let month = date.getMonth()
+    let day = date.getDay()
+    let hour = date.getHours()
+    let minute = date.getMinutes()
+    let second = date.getSeconds()
     
     res.send({ Year : year,
-               Month : month
-            })
+               Month : month,
+               Day : day,
+               Hour : hour,
+               Minute : minute,
+               Second : second })
   })
   
   .get('/db',function(req, res){
