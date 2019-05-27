@@ -18,17 +18,18 @@ express()
     let date = new Date()
     let year = date.getFullYear()
     let month = date.getMonth()
-    let day = date.getDay()
+    let day = date.getday()
     let hour = date.getHours()
     let minute = date.getMinutes()
     let second = date.getSeconds()
     
-    res.send({ Year : year,
-               Month : month,
-               Day : day,
-               Hour : hour,
-               Minute : minute,
-               Second : second })
+    res.send({  Year : year,
+                Month : month,
+                Day : day,
+                Hour : hour,
+                Minute : minute,
+                Second : second },{
+                Some : date})
   })
   
   .get('/db',function(req, res){
