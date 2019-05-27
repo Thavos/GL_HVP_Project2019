@@ -29,7 +29,7 @@ express()
                Hour : hour,
                Minute : minute,
                Second : second,
-               Date : date })
+               Date : date.day })
   })
   
   .get('/db',function(req, res){
