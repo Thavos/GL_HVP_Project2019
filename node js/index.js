@@ -16,16 +16,13 @@ express()
   })
 
   .get('/db',function(req, res){
-    res.send("THIS WORKS WELL")
-    /*mongo.connect(mongoUrl, function(err, db){
-      if(err){
-        console.log(err)
-        res.send(err)
-      }
-      var console = db
-      console.log(db)
-      res.send(db)
-    })*/
+      mongo.connect(mongoUrl, function(err, result){
+        if(err){
+          res.send(err)
+        } else {
+          res.send(result)
+        }
+      })
   })
 
   .post('/post', function(req, res){
