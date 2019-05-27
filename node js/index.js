@@ -17,8 +17,8 @@ express()
   .get('/get', function(req, res){
     Date(year, month, day, hour, minute, second)
     
-    res.send({"year" : year,
-              "month" : month
+    res.send({ Year : year,
+               Month : month
             })
   })
   
