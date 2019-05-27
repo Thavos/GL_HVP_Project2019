@@ -5,7 +5,7 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 
 //let mongoUrl = "mongodb+srv://gluser:tajneheslo@glcluster-nzu7u.mongodb.net/test?retryWrites=true"
-let data = fs.readFileSync('./database/data.json')
+let data = fs.readFileSync('data.json')
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
