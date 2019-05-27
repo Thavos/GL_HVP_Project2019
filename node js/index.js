@@ -16,7 +16,8 @@ express()
   })
 
   .get('/db',function(req, res){
-    mongo.connect(mongoUrl, function(err, db){
+    res.send("THIS WORKS WELL")
+    /*mongo.connect(mongoUrl, function(err, db){
       if(err){
         console.log(err)
         res.send(err)
@@ -24,7 +25,7 @@ express()
       var console = db
       console.log(db)
       res.send(db)
-    })
+    })*/
   })
 
   .post('/post', function(req, res){
