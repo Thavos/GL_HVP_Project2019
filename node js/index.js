@@ -15,10 +15,10 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/get', function(req, res){
-    new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
+    let date = new Date().toISOString().replace('T', ' ').replace('\..+', '')
     res.send({some : date});
   })
-
+  
   .get('/db',function(req, res){
       res.send(json)
   })
