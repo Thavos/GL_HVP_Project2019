@@ -15,8 +15,11 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/get', function(req, res){
-    let date = new Date().toISOString().replace('T', ' ').replace('\..+', '')
-    res.send({some : date});
+    Date(year, month, day, hour, minute, second)
+    
+    res.send({"year" : year,
+              "month" : month
+            })
   })
   
   .get('/db',function(req, res){
