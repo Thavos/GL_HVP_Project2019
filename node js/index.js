@@ -8,7 +8,7 @@ let items = []
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
+  .set('view engine', 'ejs', 'js')
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/get', function(req, res){

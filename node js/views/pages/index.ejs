@@ -3,8 +3,10 @@
   <head>
     <title>Snímanie pohybu</title>
     <meta charets="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://gl-hvp-project2019.herokuapp.com/data"></script>
   </head>
   <body onLoad="buildHtmlTable('#excelDataTable')">
     <div class="navbar">
@@ -35,8 +37,6 @@
     <table id="excelDataTable" align="center"></table>
 
     <script>
-
-    let data = []
 
     function CreateTableFromJSON() {
 
