@@ -23,22 +23,25 @@ express()
     let minute = date.getMinutes()
     let second = date.getSeconds()
     
+    data = fs.readFile('data.json')
+    json = JSON.parse(data)
+    fs.writeFileSync('data.json', json)
+
     res.send({ Year : year,
                Month : month,
                Day : day,
                Hour : hour,
                Minute : minute,
-               Second : second  })
+               Second : second,
+               Data : json      })
   })
   
-  .get('/db',function(req, res){
-      res.send(json)
+  .post('/settings', function(req, res){
+    data = fs.readFileSync('userSettings.json')
+    json = JSON.parse(data)
+
   })
 
-  .post('/post', function(req, res){
-    res.send('contact-successful');
-  })
-  
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 //uselles coment
