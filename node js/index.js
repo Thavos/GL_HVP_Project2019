@@ -1,12 +1,9 @@
 const fs =  require('fs')
-const mongo = require('mongodb')
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-//let mongoUrl = "mongodb+srv://gluser:tajneheslo@glcluster-nzu7u.mongodb.net/test?retryWrites=true"
-let data = fs.readFileSync('data.json')
-let json = JSON.parse(data);
+let items = []
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -15,25 +12,37 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
 
   .get('/get', function(req, res){
-    let date = new Date()
-    let year = date.getFullYear()
-    let month = date.getMonth()
-    let day = date.getDate()
-    let hour = date.getHours()
-    let minute = date.getMinutes()
-    let second = date.getSeconds()
     
-    data = fs.readFile('data.json')
-    json = JSON.parse(data)
-    console.log(data)
-    console.log(json)
+    fs.readFile('./data.json', 'utf8', function readFileCallback(err, data){
+      if (err){
+          console.log(err);
+      } else {
+      
+      items = JSON.parse(data);
+      let newDate = new Date()
+      let month = newDate.getMonth()
+      if(month < 10){
+        month = "0" + month
+      }
+      
+      let date = newDate.getFullYear() + '-' + month + '-' + newDate.getDate()
+      let time = newDate.getHours() + ':' + newDate.getMinutes()
+      
+      items.push({Date : date, Time : time})
+      json = JSON.stringify(items); 
+      
+      fs.writeFile('./data.json', json, 'utf8', function(){
+        fs.readFile('./settings.json', 'utf8', function(err, data){
+          if(err){
+            console.log(err)
+          }else{
+            
+          }
+        })
 
-    res.send({ Year : year,
-               Month : month,
-               Day : day,
-               Hour : hour,
-               Minute : minute,
-               Second : second  })
+        res.send({Date : date , Time : time})
+      });
+    }});
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
