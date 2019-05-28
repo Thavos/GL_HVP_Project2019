@@ -5,7 +5,6 @@
     <meta charets="utf-8">
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../../db.js" type="text/javascript" charset="utf-8" async defer></script>
   </head>
   <body onLoad="buildHtmlTable('#excelDataTable')">
     <div class="navbar">
@@ -35,8 +34,9 @@
       </div>
     <table id="excelDataTable" align="center"></table>
 
-<script>
-    let data = LoadData()
+<script src="../../db.js"> 
+    let data = LoadData();
+
     //Sets of data in JSON format
      /*var data = [
             {
@@ -75,7 +75,6 @@
 
 
     function CreateTableFromJSON() {
-
       // EXTRACT VALUE FOR HTML HEADER.
       var col = [];
       for (var i = 0; i < data.length; i++) {
