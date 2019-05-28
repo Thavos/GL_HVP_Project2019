@@ -55,7 +55,7 @@ express()
           } else {
             
           items = JSON.parse(data);
-          res.send(items)
+          res.send('data :' + items)
           }
       })
     }
