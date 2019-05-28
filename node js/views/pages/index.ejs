@@ -38,28 +38,7 @@
 
     let data = []
 
-    function httpGet(theUrl)
-    {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-        xmlHttp.send( null );
-        data = xmlHttp.data;
-          
-        console.log( data );
-        CreateTableFromJSON();
-    }
-
     function CreateTableFromJSON() {
-      httpGet('http://gl-hvp-project2019.herokuapp.com/data');
-      // EXTRACT VALUE FOR HTML HEADER.
-      var col = [];
-      for (var i = 0; i < data.length; i++) {
-        for (var key in data[i]) {
-          if (col.indexOf(key) === -1) {
-            col.push(key);
-          }
-        }
-      }
 
       // CREATE DYNAMIC TABLE.
       var table = document.createElement("table");
