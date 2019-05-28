@@ -25,14 +25,15 @@ express()
     
     data = fs.readFile('data.json')
     json = JSON.parse(data)
+    console.log(data)
+    console.log(json)
 
     res.send({ Year : year,
                Month : month,
                Day : day,
                Hour : hour,
                Minute : minute,
-               Second : second,
-               Data : json      })
+               Second : second  })
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
