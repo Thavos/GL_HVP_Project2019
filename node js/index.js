@@ -49,7 +49,7 @@ express()
     items = []
 
     new function LoadData(){
-        fs.readFile('./data.json', 'utf8', function(err, data){
+        fs.readFile('./data.js', 'utf8', function(err, data){
         if (err){
             console.log(err);
         } else {
