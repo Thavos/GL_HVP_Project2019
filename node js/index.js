@@ -9,7 +9,9 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/', function(req, res){
+    res.sendFile('./views/pages/index.html')
+  })
 
   .get('/get', function(req, res){
     
