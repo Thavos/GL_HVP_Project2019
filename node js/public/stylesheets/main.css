@@ -18,7 +18,7 @@ a {
     margin-right: 14px;
     font-size: 18px;
   text-decoration: none;
-  color:#AAA;
+  color:#fff;
   font-family: 'Fira Sans', sans-serif;
   text-transform: uppercase;
   padding: 18px;
@@ -50,6 +50,14 @@ h1 {
   text-transform: uppercase;
   color: #2d9cca;
 }
+h3 {
+  color: #fff;
+  font-size: 20px;
+}
+p {
+  padding-right: 40px;
+  padding-left: 40px;
+}
 th {
   background: #464866;
   padding-top: 12px;
@@ -57,9 +65,38 @@ th {
     color: #fff;
     border: none;
 }
+input{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
 .inputs{
   text-align: center;
 }
+
 label {
   display: inline-block;
+  margin-bottom: 20px;
+
 }
+.Settings{
+  border: 2px solid #2d9cca;
+  margin: 10px;
+}
+ button {
+  background: #2d9cca;
+  text-align: center;
+  font-size: 14px;
+  width: 80px;
+    height: 30px;
+  border-radius: 10px;
+  font-family: 'Fira Sans', sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-color: #25274D;
+  color: #fff;
+  cursor: pointer;
+ }
+ button:hover {
+  background-color: #fff;
+  color: #2d9cca;
+ }
