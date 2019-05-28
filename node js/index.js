@@ -49,16 +49,16 @@ express()
     items = []
 
     new function LoadData(){
-        fs.readFile('./data.json', 'utf8', function(err, data){
-        if (err){
-            console.log(err);
-        } else {
-          
-        items = JSON.parse(data);
-        res.send(items)
-        }
-    })
-}
+          fs.readFile('./data.json', 'utf8', function(err, data){
+          if (err){
+              console.log(err);
+          } else {
+            
+          items = JSON.parse(data);
+          res.send(items)
+          }
+      })
+    }
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
