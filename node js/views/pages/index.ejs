@@ -25,7 +25,7 @@
         <h3>Filter</h3>
         <label>
           Choose a date <br>
-        <input type="date" name="date" id="myInput" onclick="LoadData()" onchange="myFunction()">
+        <input type="date" name="date" id="myInput" onclick="CreateTableFromJSON()" onchange="myFunction()">
         </label>
         <label>
           Choose a Time <br>
@@ -36,8 +36,21 @@
 
     <script>
 
-    function CreateTableFromJSON() {
+    let data = []
 
+    function httpGet(theUrl)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+        xmlHttp.send( null );
+        data = xmlHttp.data;
+          
+        console.log( data );
+        CreateTableFromJSON();
+    }
+
+    function CreateTableFromJSON() {
+      httpGet('http://gl-hvp-project2019.herokuapp.com/data');
       // EXTRACT VALUE FOR HTML HEADER.
       var col = [];
       for (var i = 0; i < data.length; i++) {
