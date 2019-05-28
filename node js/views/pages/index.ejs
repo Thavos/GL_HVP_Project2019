@@ -3,7 +3,7 @@
   <head>
     <title>Snímanie pohybu</title>
     <meta charets="utf-8">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body onLoad="buildHtmlTable('#excelDataTable')">
@@ -14,7 +14,7 @@
         </ul>
       </div>
       <h1>Database of sensoring</h1>
-      <div class="inputs" align = "center">
+      <div class="inputs" align="center">
         <label class="Settings">
           <h3>Light Settings</h3>
           <p>When would you like to turn the light on?</p>
@@ -25,7 +25,7 @@
         <h3>Filter</h3>
         <label>
           Choose a date <br>
-        <input type="date" name="date" id="myInput" onclick="CreateTableFromJSON()" onchange="myFunction()">
+        <input type="date" name="date" id="myInput" onclick="LoadData()" onchange="myFunction()">
         </label>
         <label>
           Choose a Time <br>
@@ -34,47 +34,10 @@
       </div>
     <table id="excelDataTable" align="center"></table>
 
-<script src="../../db.js"> 
-    let data = LoadData();
-
-    //Sets of data in JSON format
-     /*var data = [
-            {
-                "Date": "2019-05-23",
-                "Time": "12:03"
-            },
-            {
-                "Date": "2019-05-24",
-                "Time": "13:03"
-            },
-            {
-                "Date": "2019-05-24",
-                "Time": "13:04"
-            },
-            {
-                "Date": "2019-05-24",
-                "Time": "13:08"
-            },
-            {
-                "Date": "2019-05-24",
-                "Time": "13:20"
-            },
-            {
-                "Date": "2019-05-25",
-                "Time": "13:04"
-            },
-            {
-                "Date": "2019-05-26",
-                "Time": "14:03"
-            },
-            {
-                "Date": "2019-05-27",
-                "Time": "15:03"
-            }
-        ]*/
-
+    <script>
 
     function CreateTableFromJSON() {
+
       // EXTRACT VALUE FOR HTML HEADER.
       var col = [];
       for (var i = 0; i < data.length; i++) {
