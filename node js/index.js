@@ -25,7 +25,6 @@ express()
     
     data = fs.readFile('data.json')
     json = JSON.parse(data)
-    fs.writeFileSync('data.json', json)
 
     res.send({ Year : year,
                Month : month,
@@ -34,12 +33,6 @@ express()
                Minute : minute,
                Second : second,
                Data : json      })
-  })
-  
-  .post('/settings', function(req, res){
-    data = fs.readFileSync('userSettings.json')
-    json = JSON.parse(data)
-
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
