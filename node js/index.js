@@ -7,6 +7,7 @@ let items = []
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
+  .use(express.static(path.join(__dirname, 'views/pages/')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs', 'js')
   .get('/', (req, res) => res.render('pages/index'))
