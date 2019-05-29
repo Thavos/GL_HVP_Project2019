@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html>
   <head>
     <title>Snímanie pohybu</title>
     <meta charets="utf-8">
     <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="data.js"></script>
+    <script src="http://www.sktedro.wz.cz/data.js"></script>
   </head>
   <body onLoad="buildHtmlTable('#excelDataTable')">
     <div class="navbar">
         <ul>
-            <li class="nav"><a href="index.ejs">foke</a></li>
-            <li class="nav"><a href="about.ejs">uuuuu</a></li>
+            <li class="nav"><a href="index.ejs">Home</a></li>
+            <li class="nav"><a href="about.ejs">About</a></li>
         </ul>
       </div>
       <h1>Database of sensoring</h1>
@@ -38,6 +38,8 @@
     <script>
 
     function CreateTableFromJSON() {
+      
+          var data = <%-JSON.stringify(myVar)%>
 
       // CREATE DYNAMIC TABLE.
       var table = document.createElement("table");

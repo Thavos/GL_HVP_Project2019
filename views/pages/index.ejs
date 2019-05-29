@@ -1,11 +1,10 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Snímanie pohybu</title>
     <meta charets="utf-8">
     <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://www.sktedro.wz.cz/data.js"></script>
   </head>
   <body onLoad="buildHtmlTable('#excelDataTable')">
     <div class="navbar">
@@ -14,6 +13,7 @@ s<!DOCTYPE html>
             <li class="nav"><a href="about.ejs">About</a></li>
         </ul>
       </div>
+      <p id="debug"></p>
       <h1>Database of sensoring</h1>
       <div class="inputs" align="center">
         <label class="Settings">
@@ -36,9 +36,46 @@ s<!DOCTYPE html>
     <table id="excelDataTable" align="center"></table>
 
     <script>
+      let data = [];
+
+    function LoadData(){
+      let a = "<%= item %>"
+      let b = a.replace(/&#34;/g, "\"");
+      
+      data = JSON.parse(b);
+      console.log(data);
+      /*let c = b.slice(1, -1);
+      let tdt = [];
+      
+      for(let j = 0; j < c.length/36; j++){     
+        let D = []
+        for(let i = 0; i < 36; i++){
+          D[i] = c[i];
+          if(i > 8 && i < 19){ 
+            tdt[i-9] = D[i];
+          }
+          //else if(i > 29 && i < 34){ 
+            else if (i > 28 && i < 33){
+            tdt[i-20] = D[i];
+            //document.getElementById("td").innerHTML = D;
+          }
+        }
+        for(let k = 0; k < 14; k++){
+            document.getElementById("debug").innerHTML = tdt;
+        }
+        if(D[35] == ","){
+          D = D.slice(0, -1);
+        }
+        data.push(D)
+        console.log(D)
+      }
+
+      console.log(data)
+      //document.getElementById("debug").innerHTML = data;
+    */
+    }
 
     function CreateTableFromJSON() {
-      
       // CREATE DYNAMIC TABLE.
       var table = document.createElement("table");
 
@@ -68,6 +105,7 @@ s<!DOCTYPE html>
     }
 
     function buildHtmlTable(selector) {
+      LoadData();
       var columns = addAllColumnHeaders(data, selector);
       for (var i = 0; i < data.length; i++) {
         var row$ = $('<tr/>');
