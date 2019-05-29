@@ -7,7 +7,7 @@ let items = []
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-  .use(express.static(path.join(__dirname, 'pages')))
+  .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', function(req, res){
     res.sendfile('./views/pages/index.html')
