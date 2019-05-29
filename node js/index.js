@@ -11,7 +11,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', function(req, res){
-    res.sendfile('./views/pages/index.html')
+    res.sendfile('index.html')
   })
 
   .get('/get', function(req, res){
