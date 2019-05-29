@@ -6,23 +6,12 @@ const app = express();
 
 let items = []
 
-app.use(express.static(__dirname))
-
-app.get('/', function(req, res){
-  res.sendFile('index')
-})
-
-app.listen(port, function(){
-  console.log('app running')
-})
-
-/*
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', function(req, res){
-    res.sendfile('./views/pages/index.html')
+    res.sendfile('./index.html')
   })
 
   .get('/get', function(req, res){
@@ -77,5 +66,5 @@ express()
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-*/
+
 //uselles coment
