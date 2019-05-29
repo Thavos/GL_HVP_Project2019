@@ -2,9 +2,21 @@ const fs =  require('fs')
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+const app = express();
 
 let items = []
 
+app.use(express.static(__dirname))
+
+app.get('/', function(req, res){
+  res.sendFile('node js\views\pages\index.html')
+})
+
+app.listen(port, function(){
+  console.log('app running')
+})
+
+/*
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
@@ -65,5 +77,5 @@ express()
   })
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
+*/
 //uselles coment
