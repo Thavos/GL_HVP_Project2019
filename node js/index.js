@@ -10,7 +10,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', function(req, res){
-    res.sendfile('index.html')
+    res.sendfile('./views/pages/index.html')
   })
 
   .get('/get', function(req, res){
@@ -38,11 +38,11 @@ express()
           if(err){
             console.log(err)
           }else{
-            
+            let timeToLight = 0.5;
           }
         })
 
-        res.send({Date : date , Time : time})
+        res.send({ Time : timeToLight })
       });
     }});
   })
