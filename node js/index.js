@@ -34,13 +34,20 @@ express()
       json = JSON.stringify(items); 
       
       fs.writeFile('./data.json', json, 'utf8', function(){
-        fs.readFile('./settings.json', 'utf8', function(err, data){
-          if(err){
-            console.log(err)
-          }else{
-            let timeToLight = 0.5;
+      fs.readFile('./settings.json', 'utf8', function(err, data){
+        if(err){
+          console.log(err)
+        }else{
+          let Data = JSON.parse(data)
+          time = time.replace(/:/g,".")
+          if(time > data.from && time < data.to){
+            timeToLight = data.time;
           }
-        })
+          else{
+            timeToLight = 0
+          }
+        }
+      })
 
         res.send({ Time : timeToLight })
       });
