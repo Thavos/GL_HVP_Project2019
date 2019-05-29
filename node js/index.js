@@ -10,7 +10,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', function(req, res){
-    res.sendFile('./views/pages/index.html')
+    res.render('./views/pages/index.ejs');
   })
 
   .get('/get', function(req, res){
