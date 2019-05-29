@@ -9,7 +9,7 @@ let items = []
 app.use(express.static(__dirname))
 
 app.get('/', function(req, res){
-  res.sendFile('node js\views\pages\index.html')
+  res.sendFile('index')
 })
 
 app.listen(port, function(){
