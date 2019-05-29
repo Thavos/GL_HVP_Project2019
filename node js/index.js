@@ -7,7 +7,7 @@ let items = []
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
+  .use(express.static(path.join(__dirname, 'pages')))
   .set('view engine', 'ejs')
   .get('/', function(req, res){
     res.sendfile('./views/pages/index.html')
@@ -38,14 +38,8 @@ express()
         if(err){
           console.log(err)
         }else{
-          let Data = JSON.parse(data)
-          time = time.replace(/:/g,".")
-          if(time > data.from && time < data.to){
-            timeToLight = data.time;
-          }
-          else{
-            timeToLight = 0
-          }
+          //DOLADIT
+          timeToLight = 50
         }
       })
 
