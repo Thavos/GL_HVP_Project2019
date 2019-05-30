@@ -88,7 +88,7 @@ express()
     items = []
 
     new function LoadData(){
-          fs.readFile('./sett.json', 'utf8', function(err, data){
+          fs.readFile('./settings.json', 'utf8', function(err, data){
           if (err){
               console.log(err);
           } else {
