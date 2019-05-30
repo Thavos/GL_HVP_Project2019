@@ -47,24 +47,27 @@ express()
         
         let date = newDate.getFullYear() + '-' + month + '-' + newDate.getDate()
         let time = newDate.getHours() + ':' + newDate.getMinutes()
-        
+
         items.push({Date : date, Time : time})
         json = JSON.stringify(items); 
         
         fs.writeFile('./data.json', json, 'utf8', function(){
-          fs.readFile('./data.json', 'utf8', function(err, data){
+          fs.readFile('./settings.json', 'utf8', function(err, data){
             if(err){
               console.log(err)
             }else{
-              //ZLY IF STATMENT
-              if(time > data.from && time < data.to){
-                let timeToLight = JSON.parse(data).time
+              let timeToLight
+              let DATA = JSON.parse(data)
+              let time = newDate.getHours() + '.' + newDate.getMinutes()
+              time = parseFloat(time);
+              if(time > DATA.time1 && time < DATA.time2){
+                timeToLight = DATA.delay
               }
               else{
-                timeToLight = 10
+                timeToLight = 0
               }
+              res.send({ Time : timeToLight })
             }
-            res.send({ Time : timeToLight })
           })
         })
       }
