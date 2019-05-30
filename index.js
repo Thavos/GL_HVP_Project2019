@@ -94,15 +94,15 @@ express()
         //console.log(settings[0].time2)
         console.log(settings) 
         let set = JSON.stringify(req.body)
-        let a = JSON.parse(set)/*
-        let time1 = set.time1;
-        time1[2] = "."*/
+        let a = JSON.parse(set)
+        let time1 = a.time1;
+        time1[2] = "."
         //setx = set.toString();
         //setx.replaceAt(2, "SUP");
         //set.replace([12], '.')
         //set.replace([28], '.')
         //res.redirect('/');
-        res.send(a.time1)
+        res.send(time1)
       }
     })
     //res.send(set[12] + ' ' + set[28])
