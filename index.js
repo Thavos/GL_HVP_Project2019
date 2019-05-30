@@ -64,7 +64,7 @@ express()
                 timeToLight = DATA.delay
               }
               else{
-                timeToLight = 0
+                timeToLight = 2
               }
               res.send({ Time : timeToLight , ola : time, MOTHERFUCKER : DATA.delay})
             }
