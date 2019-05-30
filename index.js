@@ -62,7 +62,6 @@ express()
             if(err){
               console.log(err)
             }else{
-              let timeToLight = 1
               let DATA = JSON.parse(p)
               let time = newDate.getHours() + '.' + newDate.getMinutes()
               time = parseFloat(time) + 2;
