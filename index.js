@@ -40,13 +40,13 @@ express()
       } else {
         items = JSON.parse(data);
         let newDate = new Date()
-        let month = newDate.getMonth()
+        let month = newDate.getMonth() + 1
         if(month < 10){
           month = "0" + month
         }
         
         let date = newDate.getFullYear() + '-' + month + '-' + newDate.getDate()
-        let time = newDate.getHours() + ':' + newDate.getMinutes()
+        let time = (newDate.getHours() + 2) + ':' + newDate.getMinutes()
 
         items.push({Date : date, Time : time})
         json = JSON.stringify(items); 
@@ -60,13 +60,13 @@ express()
               let DATA = JSON.parse(data)
               let time = newDate.getHours() + '.' + newDate.getMinutes()
               time = parseFloat(time) + 2;
-              if(time > DATA.time1 && time < DATA.time2){
+              if(1){
                 timeToLight = DATA.delay
               }
               else{
                 timeToLight = 2
               }
-              res.send({ Time : timeToLight , ola : time, MOTHERFUCKER : DATA.delay})
+              res.send({ Time : timeToLight , ola : time})
             }
           })
         })
