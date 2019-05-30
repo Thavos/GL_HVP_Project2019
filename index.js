@@ -9,8 +9,6 @@ const app = express();
 let settings = []
 let items = []
 
-app.use(bodyParser.urlencoded({ extended: false }));
-
 app.configure(function(){
   app.use(express.bodyParser())
   app.use(app.router)
