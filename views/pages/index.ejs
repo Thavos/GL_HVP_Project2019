@@ -3,14 +3,14 @@
   <head>
     <title>Snímanie pohybu</title>
     <meta charets="utf-8">
-    <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body onLoad="buildHtmlTable('#excelDataTable')">
     <div class="navbar">
         <ul>
-            <li class="nav"><a href="index.ejs">Home</a></li>
-            <li class="nav"><a href="about.ejs">About</a></li>
+            <li class="nav"><a href="">Home</a></li>
+            <li class="nav"><a href="/about">About</a></li>
         </ul>
       </div>
       <p id="debug"></p>
@@ -20,7 +20,8 @@
           <h3>Light Settings</h3>
           <p>When would you like to turn the light on?</p>
           from <input type="time" name="usr_time">
-          to <input type="time" name="usr_time">
+          to <input type="time" name="usr_time2">
+          delay (s) <input class="number" type="number" min="0" name="delay">
           <button>Submit</button>
         </label>
         <h3>Filter</h3>
@@ -41,20 +42,20 @@
     function LoadData(){
       let a = "<%= item %>"
       let b = a.replace(/&#34;/g, "\"");
-      
+
       data = JSON.parse(b);
       console.log(data);
       /*let c = b.slice(1, -1);
       let tdt = [];
-      
-      for(let j = 0; j < c.length/36; j++){     
+
+      for(let j = 0; j < c.length/36; j++){
         let D = []
         for(let i = 0; i < 36; i++){
           D[i] = c[i];
-          if(i > 8 && i < 19){ 
+          if(i > 8 && i < 19){
             tdt[i-9] = D[i];
           }
-          //else if(i > 29 && i < 34){ 
+          //else if(i > 29 && i < 34){
             else if (i > 28 && i < 33){
             tdt[i-20] = D[i];
             //document.getElementById("td").innerHTML = D;
@@ -74,7 +75,6 @@
       //document.getElementById("debug").innerHTML = data;
     */
     }
-
     function CreateTableFromJSON() {
       // CREATE DYNAMIC TABLE.
       var table = document.createElement("table");

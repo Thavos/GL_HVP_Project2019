@@ -4,8 +4,12 @@ const PORT = process.env.PORT || 5000
 
 //MOJE
 const fs =  require('fs')
+const bodyParser = require('body-parser');
 
+let settings = []
 let items = []
+
+express().use(bodyParser.urlencoded({ extended: false }));
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -21,6 +25,9 @@ express()
         }
       }
     )
+  })
+  .get('/about', function(req,res){
+    res.render('pages/about')
   })
   .get('/get', function(req, res){
     fs.readFile('./data.json', 'utf8', function readFileCallback(err, data){
@@ -41,7 +48,7 @@ express()
         json = JSON.stringify(items); 
         
         fs.writeFile('./data.json', json, 'utf8', function(){
-          fs.readFile('./settings.json', 'utf8', function(err, data){
+          fs.readFile('./data.json', 'utf8', function(err, data){
             if(err){
               console.log(err)
             }else{
@@ -67,11 +74,24 @@ express()
           if (err){
               console.log(err);
           } else {
-            
           items = JSON.parse(data);
           res.send(items)
           }
       })
     }
+  })
+  .post('/post', function(req,res){
+    fs.readFile('./settings.json', 'utf8', function(err, data){
+      if (err){
+        console.log(err)
+        res.send(err)
+      } else {
+        settings = JSON.parse(data)
+        //console.log(settings[0].time2)
+        console.log(settings)
+        res.send(req.body)
+        //res.status(200).send('okay')
+      }
+    })
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
