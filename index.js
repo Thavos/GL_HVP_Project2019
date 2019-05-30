@@ -104,7 +104,9 @@ express()
         //res.redirect('/');
         let time11 = o.slice(0, 2)
         let time12 = o.slice(3, 6)
-        res.send(time11 + "." + time12)
+        let T = time11 + '.' + time12
+        T = parseFloat(T);
+        res.send(T)
       }
     })
     //res.send(set[12] + ' ' + set[28])
