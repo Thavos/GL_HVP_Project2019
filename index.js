@@ -102,7 +102,9 @@ express()
         //set.replace([12], '.')
         //set.replace([28], '.')
         //res.redirect('/');
-        res.send(o.slice(1,3))
+        let time11 = o.slice(0, 3)
+        let time12 = o.slice(4, 7)
+        res.send(time11 + "." + time12)
       }
     })
     //res.send(set[12] + ' ' + set[28])
