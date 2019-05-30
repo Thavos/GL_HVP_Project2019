@@ -11,6 +11,11 @@ let items = []
 
 express().use(bodyParser.urlencoded({ extended: false }));
 
+express().configure(function(){
+  express().use(express.bodyParser())
+  express().use(express().router)
+})
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
@@ -89,7 +94,7 @@ express()
         settings = JSON.parse(data)
         //console.log(settings[0].time2)
         console.log(settings)
-        res.send("okay")
+        res.send({ Data : req.body, Status : "Okay"})
         //res.status(200).send('okay')
       }
     })
