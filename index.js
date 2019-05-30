@@ -96,13 +96,13 @@ express()
         let set = JSON.stringify(req.body)
         let a = JSON.parse(set)
         let o = a.time1;
-        o.replaceAt(2, "SUP")
+        //o.replaceAt(2, "SUP")
         //setx = set.toString();
         //setx.replaceAt(2, "SUP");
         //set.replace([12], '.')
         //set.replace([28], '.')
         //res.redirect('/');
-        res.send(o)
+        res.send(o.slice(1,3))
       }
     })
     //res.send(set[12] + ' ' + set[28])
