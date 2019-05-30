@@ -90,7 +90,7 @@ express()
         console.log(settings) 
         //res.send(JSON.stringify(req.body))
         //res.status(200).send('okay')
-        res.end();
+        res.status(200);
       }
     })
   })
