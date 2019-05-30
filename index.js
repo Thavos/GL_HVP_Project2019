@@ -8,6 +8,11 @@ const bodyParser = require('body-parser')
 
 let settings = []
 let items = []
+let setx;
+
+String.prototype.replaceAt = function(index, replacement){
+  return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+}
 
 express()
   .use(bodyParser())
@@ -88,12 +93,16 @@ express()
         settings = JSON.parse(data)
         //console.log(settings[0].time2)
         console.log(settings) 
-        let set = JSON.stringify(req.body).toString()
-        set.replace([12], '.')
-        set.replace([28], '.')
+        let set = JSON.stringify(req.body)
+        setx = set;
+        alert(setx.replaceAt(2, "SUP"));
+        //set.replace([12], '.')
+        //set.replace([28], '.')
         //res.redirect('/');
+
       }
     })
-    res.send(set[12] + ' ' + set[28])
+    //res.send(set[12] + ' ' + set[28])
+    res.send(setx)
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
