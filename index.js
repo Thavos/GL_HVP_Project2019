@@ -84,6 +84,20 @@ express()
       })
     }
   })
+  .get('/sett', function(req, res){
+    items = []
+
+    new function LoadData(){
+          fs.readFile('./sett.json', 'utf8', function(err, data){
+          if (err){
+              console.log(err);
+          } else {
+          items = JSON.parse(data);
+          res.send(items)
+          }
+      })
+    }
+  })
   .post('/post', function(req,res){
     fs.readFile('./settings.json', 'utf8', function(err, data){
       if (err){
