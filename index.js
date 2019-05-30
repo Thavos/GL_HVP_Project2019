@@ -57,16 +57,16 @@ express()
               console.log(err)
             }else{
               let timeToLight = 1
-              let DATA = JSON.parse(data)
+              let DATA = data
               let time = newDate.getHours() + '.' + newDate.getMinutes()
               time = parseFloat(time) + 2;
               if(1){
-                timeToLight = parseInt(DATA.delay)
+                timeToLight = DATA.delay
               }
               else{
                 timeToLight = 2
               }
-              res.send({ Time : timeToLight , ola : time, Delay : DATA.delay})
+              res.send({ Time : timeToLight , actTime : time, delay : DATA.delay})
             }
           })
         })
