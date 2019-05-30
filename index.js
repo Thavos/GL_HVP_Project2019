@@ -57,19 +57,16 @@ express()
               console.log(err)
             }else{
               let timeToLight = 1
-              let DATA = JSON.parse(p).toString()
+              let DATA = JSON.parse(p)
               let time = newDate.getHours() + '.' + newDate.getMinutes()
-              DATA.time1 = parseFloat(DATA.time1)
-              DATA.time2 = parseFloat(DATA.time2)
-              DATA.delay = parseInt(DATA.delay)
               time = parseFloat(time) + 2;
-              if(time > DATA.time1 && time < DATA.time2){
+              if(time > DATA[0].time1 && time < DATA[0].time2){
                 timeToLight = 3 //DATA.delay
               }
               else{
                 timeToLight = 2
               }
-              res.send({delay : timeToLight, time1 : DATA.time1, time2 : DATA.time2, DelayAAA : DATA.delay})
+              res.send({Time : timeToLight, time1 : DATA[0].time1, time2 : DATA[0].time2, DelayAAA : DATA[0].delay})
             }
           })
         })
