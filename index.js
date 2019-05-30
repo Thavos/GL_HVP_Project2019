@@ -9,11 +9,6 @@ const app = express();
 let settings = []
 let items = []
 
-app.configure(function(){
-  app.use(express.bodyParser())
-  app.use(app.router)
-})
-
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
