@@ -91,9 +91,9 @@ express()
         let set = JSON.stringify(req.body).toString()
         set.replace([12], '.')
         set.replace([28], '.')
-        res.send(set)
         //res.redirect('/');
       }
     })
+    res.send(set[12] + ' ' + set[28])
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
