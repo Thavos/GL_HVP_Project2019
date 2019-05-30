@@ -89,6 +89,8 @@ express()
         //console.log(settings[0].time2)
         console.log(settings) 
         let set = JSON.stringify(req.body).toString()
+        set[12] = '.'
+        set[28] = '.'
         res.send(set)
         //res.redirect('/');
       }
