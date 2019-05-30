@@ -105,8 +105,8 @@ express()
         let time11 = o.slice(0, 2)
         let time12 = o.slice(3, 6)
         let T = time11 + '.' + time12
-        T = parseFloat(T);
-        res.send(T)
+        let M = parseFloat(T);
+        res.send(M.toString())
       }
     })
     //res.send(set[12] + ' ' + set[28])
