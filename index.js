@@ -52,12 +52,12 @@ express()
         json = JSON.stringify(items); 
         
         fs.writeFile('./data.json', json, 'utf8', function(){
-          fs.readFile('./settings.json', 'utf8', function(err, data){
+          fs.readFile('./settings.json', 'utf8', function(err, p){
             if(err){
               console.log(err)
             }else{
               let timeToLight = 1
-              let DATA = data
+              let DATA = JSON.parse(p)
               let time = newDate.getHours() + '.' + newDate.getMinutes()
               time = parseFloat(time) + 2;
               if(1){
@@ -66,7 +66,7 @@ express()
               else{
                 timeToLight = 2
               }
-              res.send({ Time : timeToLight , actTime : time, delay : DATA.delay})
+              res.send({ Time : timeToLight, delay : DATA.delay})
             }
           })
         })
