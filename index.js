@@ -61,12 +61,12 @@ express()
               let time = newDate.getHours() + '.' + newDate.getMinutes()
               time = parseFloat(time) + 2;
               if(time > DATA[0].time1 && time < DATA[0].time2){
-                timeToLight = 3 //DATA.delay
+                timeToLight = DATA.delay
               }
               else{
-                timeToLight = 2
+                timeToLight = 0
               }
-              res.send({Time : timeToLight, time1 : DATA[0].time1, time2 : DATA[0].time2, DelayAAA : DATA[0].delay})
+              res.send({Time : timeToLight})
             }
           })
         })
