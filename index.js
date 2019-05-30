@@ -99,10 +99,9 @@ express()
         //set.replace([12], '.')
         //set.replace([28], '.')
         //res.redirect('/');
-
+        res.send(set)
       }
     })
     //res.send(set[12] + ' ' + set[28])
-    res.send(setx)
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
