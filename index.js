@@ -61,7 +61,7 @@ express()
                 let timeToLight = JSON.parse(data).time
               }
               else{
-                timeToLight = 0
+                timeToLight = 10
               }
             }
             res.send({ Time : timeToLight })
@@ -95,14 +95,14 @@ express()
         console.log(settings) 
         let set = JSON.stringify(req.body)
         let a = JSON.parse(set)
-        let time1 = a.time1;
-        time1[2] = "."
+        let o = a.time1;
+        o.replaceAt(2, "SUP")
         //setx = set.toString();
         //setx.replaceAt(2, "SUP");
         //set.replace([12], '.')
         //set.replace([28], '.')
         //res.redirect('/');
-        res.send(time1)
+        res.send(o)
       }
     })
     //res.send(set[12] + ' ' + set[28])
