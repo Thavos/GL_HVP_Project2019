@@ -66,7 +66,7 @@ express()
               else{
                 timeToLight = 0
               }
-              res.send({ Time : timeToLight , time : time.toString() , DATA1 : DATA.time1.toString(), DATA2 : DATA.time2.toString()})
+              res.send({ Time : timeToLight })
             }
           })
         })
