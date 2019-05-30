@@ -99,7 +99,7 @@ express()
         //set.replace([12], '.')
         //set.replace([28], '.')
         //res.redirect('/');
-        res.send(set)
+        res.send(setx)
       }
     })
     //res.send(set[12] + ' ' + set[28])
