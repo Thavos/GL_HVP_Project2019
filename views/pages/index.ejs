@@ -3,27 +3,27 @@
   <head>
     <title>Snímanie pohybu</title>
     <meta charets="utf-8">
-    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body onLoad="buildHtmlTable('#excelDataTable')">
     <div class="navbar">
         <ul>
-            <li class="nav"><a href="">Home</a></li>
-            <li class="nav"><a href="/about">About</a></li>
+            <li class="nav"><a href="index.ejs">Home</a></li>
+            <li class="nav"><a href="about.ejs">About</a></li>
         </ul>
-      </div>
-      <p id="debug"></p>
-      <h1>Database of sensoring</h1>
+      </div>      <h1>Database of sensoring</h1>
       <div class="inputs" align="center">
-        <label class="Settings">
-          <h3>Light Settings</h3>
-          <p>When would you like to turn the light on?</p>
-          from <input type="time" name="usr_time">
-          to <input type="time" name="usr_time2">
-          delay (s) <input class="number" type="number" min="0" name="delay">
-          <button>Submit</button>
-        </label>
+        <form action="https://gl-hvp-project2019.herokuapp.com/post" method="get">
+          <label class="Settings" >
+            <h3>Light Settings</h3>
+              <p>When would you like to turn the light on?</p>
+              from <input type="time" name="time1">
+              to <input type="time" name="time2">
+              delay (s) <input class="number" type="number" min="0" name="delay">
+              <button formmethod="post" onclick="popup()">Submit</button>
+          </label>
+        </form>
         <h3>Filter</h3>
         <label>
           Choose a date <br>
@@ -74,6 +74,9 @@
       console.log(data)
       //document.getElementById("debug").innerHTML = data;
     */
+    }
+    function popup(){
+      alert("Success!!!")
     }
     function CreateTableFromJSON() {
       // CREATE DYNAMIC TABLE.
