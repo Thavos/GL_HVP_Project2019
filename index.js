@@ -121,7 +121,7 @@ express()
         SET.push({time1 : time1, time2 : time2, delay : delay})
         let json = JSON.stringify(SET)
         fs.writeFile('./settings.json', json, 'utf8', function()
-        {res.send(SET)})
+        {res.redirect('/')})
         //res.send(time1.toString() + ' ' + time2.toString())
       }
     })
