@@ -59,14 +59,14 @@ express()
               let timeToLight
               let DATA = JSON.parse(data)
               let time = newDate.getHours() + '.' + newDate.getMinutes()
-              time = parseFloat(time);
+              time = parseFloat(time) + 2;
               if(time > DATA.time1 && time < DATA.time2){
                 timeToLight = DATA.delay
               }
               else{
                 timeToLight = 0
               }
-              res.send({ Time : time })
+              res.send({ Time : timeToLight })
             }
           })
         })
