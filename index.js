@@ -4,12 +4,13 @@ const PORT = process.env.PORT || 5000
 
 //MOJE
 const fs =  require('fs')
-const app = express();
+const bodyParser = require('body-parser')
 
 let settings = []
 let items = []
 
 express()
+  .use(bodyParser())
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
@@ -87,7 +88,7 @@ express()
         settings = JSON.parse(data)
         //console.log(settings[0].time2)
         console.log(settings)
-        res.send({ Data : req.params, Status : "Okay"})
+        res.send(JSON.stringify(req.body))
         //res.status(200).send('okay')
       }
     })
