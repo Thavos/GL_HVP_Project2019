@@ -99,7 +99,14 @@ express()
         let time2 = a.time2.slice(0,2) + '.' + a.time2.slice(3,6)
         time1 = parseFloat(time1)
         time2 = parseFloat(time2)
-        res.send(time1.toString() + ' ' + time2.toString())
+        let delay = parseInt(a.delay);
+        let SET = []
+        SET.push({time1 : time1, time2 : time2, delay : delay})
+        let json = stringify(SET)
+        fs.writeFile('./settings.json', json, 'utf8')
+
+        //res.send(time1.toString() + ' ' + time2.toString())
+        res.redirect('/')
       }
     })
   })
