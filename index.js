@@ -60,7 +60,7 @@ express()
               let DATA = JSON.parse(p)
               let time = newDate.getHours() + '.' + newDate.getMinutes()
               time = parseFloat(time) + 2;
-              if(1){
+              if(time < DATA.time1 && time > DATA.time2){
                 timeToLight = 3 //DATA.delay
               }
               else{
