@@ -95,7 +95,7 @@ express()
         console.log(settings) 
         let set = JSON.stringify(req.body)
         setx = set;
-        alert(setx.replaceAt(2, "SUP"));
+        setx.replaceAt(2, "SUP");
         //set.replace([12], '.')
         //set.replace([28], '.')
         //res.redirect('/');
