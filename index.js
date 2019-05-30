@@ -116,11 +116,11 @@ express()
         let delay = parseInt(a.delay);
         let SET = []
         SET.push({time1 : time1, time2 : time2, delay : delay})
-        let json = JSON.stringify(SET)
-        fs.writeFile('./settings.json', json, 'utf8')
+        /*let json = JSON.stringify(SET)
+        fs.writeFile('./settings.json', json, 'utf8')*/
 
         //res.send(time1.toString() + ' ' + time2.toString())
-        res.redirect('/')
+        res.send(SET)
       }
     })
   })
