@@ -88,9 +88,12 @@ express()
         settings = JSON.parse(data)
         //console.log(settings[0].time2)
         console.log(settings) 
-        //res.send(JSON.stringify(req.body))
-        //res.status(200).send('okay')
-        res.redirect('/');
+        let set = JSON.stringify(req.body)
+        set.time1 = parseFloat(set.time1)
+        set.time2 = parseFloat(set.time2)
+        set.delay = parseFloat(set.delay)
+        res.send(set)
+        //res.redirect('/');
       }
     })
   })
