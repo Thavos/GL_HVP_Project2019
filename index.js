@@ -57,7 +57,7 @@ express()
               console.log(err)
             }else{
               let timeToLight = 1
-              let DATA = JSON.parse(p)
+              let DATA = JSON.parse(p).toString()
               let time = newDate.getHours() + '.' + newDate.getMinutes()
               DATA.time1 = parseFloat(DATA.time1)
               DATA.time2 = parseFloat(DATA.time2)
