@@ -61,7 +61,7 @@ express()
               let time = newDate.getHours() + '.' + newDate.getMinutes()
               time = parseFloat(time) + 2;
               if(time > DATA[0].time1 && time < DATA[0].time2){
-                timeToLight = DATA.delay
+                timeToLight = DATA[0].delay
               }
               else{
                 timeToLight = 0
