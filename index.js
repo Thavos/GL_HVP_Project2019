@@ -95,14 +95,12 @@ express()
         console.log(settings) 
         let set = JSON.stringify(req.body)
         let a = JSON.parse(set)
-        let o = a.time1;
-        let time11 = o.slice(0, 2)
-        let time12 = o.slice(3, 6)
-        let T = time11 + '.' + time12
-        let M = parseFloat(T);
-        res.send(set)
+        let time1 = a.time1.slice(0,2) + '.' + a.time1.slice(3,6)
+        let time2 = a.time2.slice(0,2) + '.' + a.time2.slice(3,6)
+        time1 = parseFloat(time1)
+        time2 = parseFloat(time2)
+        res.send(time1.toString() + ' ' + time2.toString())
       }
     })
-    //res.send(set[12] + ' ' + set[28])
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
