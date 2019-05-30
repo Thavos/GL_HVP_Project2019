@@ -88,8 +88,9 @@ express()
         settings = JSON.parse(data)
         //console.log(settings[0].time2)
         console.log(settings) 
-        let set = JSON.stringify(req.body)
-        set.replace(/:/g, '.')
+        let set = JSON.stringify(req.body).toString()
+        set.time1[2] = '.'
+        set.time2[2] = '.'
         set.time1 = parseFloat(set.time1)
         set.time2 = parseFloat(set.time2)
         set.delay = parseFloat(set.delay)
