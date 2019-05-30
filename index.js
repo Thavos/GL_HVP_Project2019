@@ -46,7 +46,13 @@ express()
         }
         
         let date = newDate.getFullYear() + '-' + month + '-' + newDate.getDate()
-        let time = (newDate.getHours() + 2) + ':' + newDate.getMinutes()
+        let time
+        if(newDate.getMinutes() < 10){
+          time = (newDate.getHours() + 2) + ':0' + newDate.getMinutes()
+        }
+        else{
+          time = (newDate.getHours() + 2) + ':' + newDate.getMinutes()
+        }
 
         items.push({Date : date, Time : time})
         json = JSON.stringify(items); 
