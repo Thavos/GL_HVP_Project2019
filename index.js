@@ -4,16 +4,16 @@ const PORT = process.env.PORT || 5000
 
 //MOJE
 const fs =  require('fs')
-const bodyParser = require('body-parser');
+const app = express();
 
 let settings = []
 let items = []
 
-express().use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-express().configure(function(){
-  express().use(express.bodyParser())
-  express().use(express().router)
+app.configure(function(){
+  app.use(express.bodyParser())
+  app.use(app.router)
 })
 
 express()
