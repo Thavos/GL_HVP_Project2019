@@ -103,6 +103,6 @@ express()
       }
     })
     //res.send(set[12] + ' ' + set[28])
-    res.send(setx)
+    res.send("heythere")
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
