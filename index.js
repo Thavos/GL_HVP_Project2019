@@ -94,7 +94,7 @@ express()
         //console.log(settings[0].time2)
         console.log(settings) 
         let set = JSON.stringify(req.body)
-        setx = set;
+        setx = set.toString();
         setx.replaceAt(2, "SUP");
         //set.replace([12], '.')
         //set.replace([28], '.')
