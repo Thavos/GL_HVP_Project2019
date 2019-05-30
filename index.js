@@ -88,7 +88,7 @@ express()
         settings = JSON.parse(data)
         //console.log(settings[0].time2)
         console.log(settings)
-        res.send(req.body)
+        res.send(JSON.parse(req.body))
         //res.status(200).send('okay')
       }
     })
